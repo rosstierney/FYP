@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" InitialTargets="OpenCV_3_x86_v100_symbols_init">
+  <PropertyGroup Label="Default initializers for properties">
+    <Linkage-OpenCV_3_x86_v100_symbols Condition="'$(Linkage-OpenCV_3_x86_v100_symbols)' == ''">dynamic</Linkage-OpenCV_3_x86_v100_symbols>
+    <CallingConvention-OpenCV_3_x86_v100_symbols Condition="'$(CallingConvention-OpenCV_3_x86_v100_symbols)' == ''">cdecl</CallingConvention-OpenCV_3_x86_v100_symbols>
+  </PropertyGroup>
+  <ItemGroup>
+    <PropertyPageSchema Include="$(MSBuildThisFileDirectory)\default-propertiesui.xml" />
+  </ItemGroup>
+  <UsingTask TaskName="OpenCV_3_x86_v100_symbols_Contains" AssemblyFile="$(MSBuildToolsPath)\Microsoft.Build.Tasks.v4.0.dll" TaskFactory="CodeTaskFactory">
+    <ParameterGroup>
+      <Text Output="false" ParameterType="System.String" />
+      <Library Output="false" Required="true" ParameterType="System.String" />
+      <Value Output="false" Required="true" ParameterType="System.String" />
+      <Result Output="true" ParameterType="System.String" />
+    </ParameterGroup>
+    <Task>
+      <Code>Result = ((Text ?? "").Split(';').Contains(Library) ) ? Value : String.Empty;</Code>
+    </Task>
+  </UsingTask>
+  <Target Name="OpenCV_3_x86_v100_symbols_init">
+    <OpenCV_3_x86_v100_symbols_Contains Text="Linkage-dynamic" Library="OpenCV_3_x86_v100_symbols" Value="dynamic" Condition="'$(Linkage-OpenCV_3_x86_v100_symbols)'==''">
+      <Output TaskParameter="Result" PropertyName="Linkage-OpenCV_3_x86_v100_symbols" />
+    </OpenCV_3_x86_v100_symbols_Contains>
+    <OpenCV_3_x86_v100_symbols_Contains Text="Linkage-static" Library="OpenCV_3_x86_v100_symbols" Value="static" Condition="'$(Linkage-OpenCV_3_x86_v100_symbols)'==''">
+      <Output TaskParameter="Result" PropertyName="Linkage-OpenCV_3_x86_v100_symbols" />
+    </OpenCV_3_x86_v100_symbols_Contains>
+    <OpenCV_3_x86_v100_symbols_Contains Text="Linkage-ltcg" Library="OpenCV_3_x86_v100_symbols" Value="ltcg" Condition="'$(Linkage-OpenCV_3_x86_v100_symbols)'==''">
+      <Output TaskParameter="Result" PropertyName="Linkage-OpenCV_3_x86_v100_symbols" />
+    </OpenCV_3_x86_v100_symbols_Contains>
+    <OpenCV_3_x86_v100_symbols_Contains Text="Linkage-sxs" Library="OpenCV_3_x86_v100_symbols" Value="sxs" Condition="'$(Linkage-OpenCV_3_x86_v100_symbols)'==''">
+      <Output TaskParameter="Result" PropertyName="Linkage-OpenCV_3_x86_v100_symbols" />
+    </OpenCV_3_x86_v100_symbols_Contains>
+    <OpenCV_3_x86_v100_symbols_Contains Text="CallingConvention-cdecl" Library="OpenCV_3_x86_v100_symbols" Value="cdecl" Condition="'$(CallingConvention-OpenCV_3_x86_v100_symbols)'==''">
+      <Output TaskParameter="Result" PropertyName="CallingConvention-OpenCV_3_x86_v100_symbols" />
+    </OpenCV_3_x86_v100_symbols_Contains>
+    <OpenCV_3_x86_v100_symbols_Contains Text="CallingConvention-stdcall" Library="OpenCV_3_x86_v100_symbols" Value="stdcall" Condition="'$(CallingConvention-OpenCV_3_x86_v100_symbols)'==''">
+      <Output TaskParameter="Result" PropertyName="CallingConvention-OpenCV_3_x86_v100_symbols" />
+    </OpenCV_3_x86_v100_symbols_Contains>
+    <OpenCV_3_x86_v100_symbols_Contains Text="CallingConvention-fastcall" Library="OpenCV_3_x86_v100_symbols" Value="fastcall" Condition="'$(CallingConvention-OpenCV_3_x86_v100_symbols)'==''">
+      <Output TaskParameter="Result" PropertyName="CallingConvention-OpenCV_3_x86_v100_symbols" />
+    </OpenCV_3_x86_v100_symbols_Contains>
+    <OpenCV_3_x86_v100_symbols_Contains Text="CallingConvention-thiscall" Library="OpenCV_3_x86_v100_symbols" Value="thiscall" Condition="'$(CallingConvention-OpenCV_3_x86_v100_symbols)'==''">
+      <Output TaskParameter="Result" PropertyName="CallingConvention-OpenCV_3_x86_v100_symbols" />
+    </OpenCV_3_x86_v100_symbols_Contains>
+    <OpenCV_3_x86_v100_symbols_Contains Text="CallingConvention-clrcall" Library="OpenCV_3_x86_v100_symbols" Value="clrcall" Condition="'$(CallingConvention-OpenCV_3_x86_v100_symbols)'==''">
+      <Output TaskParameter="Result" PropertyName="CallingConvention-OpenCV_3_x86_v100_symbols" />
+    </OpenCV_3_x86_v100_symbols_Contains>
+  </Target>
+</Project>

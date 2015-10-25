@@ -159,9 +159,33 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Source.cpp" />
+    <ClCompile Include="GaborFilter.cpp" />
+    <ClCompile Include="Histogram.cpp" />
+    <ClCompile Include="Image.cpp" />
+    <ClCompile Include="MainFrame.cpp" />
+    <ClCompile Include="Thinning.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="GaborFilter.h" />
+    <ClInclude Include="Histogram.h" />
+    <ClInclude Include="Image.h" />
+    <ClInclude Include="Thinning.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
+    <Import Project="..\packages\OpenCV_3_x86_v100.redist.3.0\build\native\OpenCV_3_x86_v100.redist.targets" Condition="Exists('..\packages\OpenCV_3_x86_v100.redist.3.0\build\native\OpenCV_3_x86_v100.redist.targets')" />
+    <Import Project="..\packages\OpenCV_3_x86_v100.3.0\build\native\OpenCV_3_x86_v100.targets" Condition="Exists('..\packages\OpenCV_3_x86_v100.3.0\build\native\OpenCV_3_x86_v100.targets')" />
+    <Import Project="..\packages\OpenCV_3_x86_v100.symbols.3.0\build\native\OpenCV_3_x86_v100.symbols.targets" Condition="Exists('..\packages\OpenCV_3_x86_v100.symbols.3.0\build\native\OpenCV_3_x86_v100.symbols.targets')" />
   </ImportGroup>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\OpenCV_3_x86_v100.redist.3.0\build\native\OpenCV_3_x86_v100.redist.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\OpenCV_3_x86_v100.redist.3.0\build\native\OpenCV_3_x86_v100.redist.targets'))" />
+    <Error Condition="!Exists('..\packages\OpenCV_3_x86_v100.3.0\build\native\OpenCV_3_x86_v100.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\OpenCV_3_x86_v100.3.0\build\native\OpenCV_3_x86_v100.targets'))" />
+    <Error Condition="!Exists('..\packages\OpenCV_3_x86_v100.symbols.3.0\build\native\OpenCV_3_x86_v100.symbols.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\OpenCV_3_x86_v100.symbols.3.0\build\native\OpenCV_3_x86_v100.symbols.targets'))" />
+  </Target>
 </Project>
