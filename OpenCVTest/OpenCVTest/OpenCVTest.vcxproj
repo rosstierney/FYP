@@ -162,7 +162,6 @@
     <ClCompile Include="GaborFilter.cpp" />
     <ClCompile Include="Histogram.cpp" />
     <ClCompile Include="Image.cpp" />
-    <ClCompile Include="MainFrame.cpp" />
     <ClCompile Include="Thinning.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -170,6 +169,7 @@
     <ClInclude Include="Histogram.h" />
     <ClInclude Include="Image.h" />
     <ClInclude Include="Thinning.h" />
+    <ClInclude Include="Watershed.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

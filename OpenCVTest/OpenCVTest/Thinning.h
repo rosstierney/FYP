@@ -14,7 +14,6 @@ public:
 	void thinningIteration(cv::Mat& im, int iter);
 	void thinning(cv::Mat& im);
 
-
 private:
 	string fileName = "C:/Users/Ross/Downloads/Fingerprint FYP/Files_FingerPrint/fingerprint1.bmp";
 
