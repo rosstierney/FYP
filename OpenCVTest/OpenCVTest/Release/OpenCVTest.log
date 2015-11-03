@@ -1,23 +1,25 @@
-﻿Build started 28/10/2015 22:55:01.
+﻿Build started 02/11/2015 01:41:12.
      1>Project "C:\Users\Ross\documents\visual studio 2015\Projects\OpenCVTest\OpenCVTest\OpenCVTest.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
          C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\CL.exe /c /I"C:\Users\Ross\documents\visual studio 2015\Projects\OpenCVTest\packages\OpenCV_3_x86_v100.3.0\build\native\../..//build/native/include/" /IC:\OpenCV\opencv\build\include /Zi /nologo /W3 /WX- /sdl /O2 /Oi /Oy- /GL /D WIN32 /D NDEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Release\\" /Fd"Release\vc140.pdb" /Gd /TP /analyze- /errorReport:prompt Image.cpp
          Image.cpp
-     1>Image.cpp(96): warning C4018: '<': signed/unsigned mismatch
-     1>Image.cpp(105): warning C4018: '<': signed/unsigned mismatch
+     1>Image.cpp(117): warning C4018: '<': signed/unsigned mismatch
+     1>Image.cpp(126): warning C4018: '<': signed/unsigned mismatch
+     1>Image.cpp(161): warning C4804: '%': unsafe use of type 'bool' in operation
+     1>Image.cpp(174): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
        Link:
          C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Ross\documents\visual studio 2015\Projects\OpenCVTest\Release\OpenCVTest.exe" /INCREMENTAL:NO /NOLOGO /LIBPATH:C:\OpenCV\opencv\build\x86\vc12\lib opencv_ts300.lib opencv_world300.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /Debug /PDB:"C:\Users\Ross\documents\visual studio 2015\Projects\OpenCVTest\Release\OpenCVTest.pdb" /SUBSYSTEM:CONSOLE /OPT:REF /OPT:ICF /LTCG:incremental /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Ross\documents\visual studio 2015\Projects\OpenCVTest\Release\OpenCVTest.lib" /MACHINE:X86 /SAFESEH Release\GaborFilter.obj
          Release\Histogram.obj
          Release\Image.obj
          Release\Thinning.obj
          Generating code
-         1 of 418 functions ( 0.2%) were compiled, the rest were copied from previous compilation.
+         1 of 426 functions ( 0.2%) were compiled, the rest were copied from previous compilation.
            0 functions were new in current compilation
-           1 functions had inline decision re-evaluated but remain unchanged
+           0 functions had inline decision re-evaluated but remain unchanged
          Finished generating code
          OpenCVTest.vcxproj -> C:\Users\Ross\documents\visual studio 2015\Projects\OpenCVTest\Release\OpenCVTest.exe
      1>Done Building Project "C:\Users\Ross\documents\visual studio 2015\Projects\OpenCVTest\OpenCVTest\OpenCVTest.vcxproj" (Build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:02.84
+Time Elapsed 00:00:02.58

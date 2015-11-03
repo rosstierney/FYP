@@ -162,6 +162,7 @@
     <ClCompile Include="GaborFilter.cpp" />
     <ClCompile Include="Histogram.cpp" />
     <ClCompile Include="Image.cpp" />
+    <ClCompile Include="Orientation.cpp" />
     <ClCompile Include="Thinning.cpp" />
   </ItemGroup>
   <ItemGroup>

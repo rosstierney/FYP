@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Source Files\src">
+      <UniqueIdentifier>{160184d9-8978-4ef9-af7e-98e5060849c8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\lib">
+      <UniqueIdentifier>{2742ce93-2493-4832-9956-1006148696fc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\lib\Binarisation">
+      <UniqueIdentifier>{e0b104e8-8b94-4a32-bf5e-42c60f5106f7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\lib\Extraction">
+      <UniqueIdentifier>{62ecbd57-8f70-4be6-867a-3da99e037dde}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\lib\Gap-Optimization">
+      <UniqueIdentifier>{21d4b988-7b95-4a34-8342-27724d6e1396}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\lib\Optimization">
+      <UniqueIdentifier>{b6073cc8-03b8-4c21-8c38-ecc8e622bd3e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\lib\Thinning">
+      <UniqueIdentifier>{57d0f1d7-2030-4190-822d-5138c21f0c79}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\..\..\..\..\opencv-fingerprint-master\opencv-fingerprint-master\lib\extraction\CrossingNumber.cpp">
+      <Filter>Source Files\lib\Extraction</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\..\..\opencv-fingerprint-master\opencv-fingerprint-master\lib\extraction\Filter.cpp">
+      <Filter>Source Files\lib\Extraction</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\..\..\opencv-fingerprint-master\opencv-fingerprint-master\lib\extraction\Minutiae.cpp">
+      <Filter>Source Files\lib\Extraction</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\..\..\opencv-fingerprint-master\opencv-fingerprint-master\lib\gap-optimisation\GapOptimisation.cpp">
+      <Filter>Source Files\lib\Gap-Optimization</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\..\..\opencv-fingerprint-master\opencv-fingerprint-master\lib\optimisation\Ideka.cpp">
+      <Filter>Source Files\lib\Optimization</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\..\..\opencv-fingerprint-master\opencv-fingerprint-master\lib\thinning\GuoHall.cpp">
+      <Filter>Source Files\lib\Thinning</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\..\..\opencv-fingerprint-master\opencv-fingerprint-master\lib\thinning\ZhangSuen.cpp">
+      <Filter>Source Files\lib\Thinning</Filter>
+    </ClCompile>
+    <ClCompile Include="..\lib\binarisation\AdaptiveLocalThreshold.cpp">
+      <Filter>Source Files\lib\Binarisation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\BinarisationTest.cpp">
+      <Filter>Source Files\src</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\..\..\..\..\opencv-fingerprint-master\opencv-fingerprint-master\lib\extraction\CrossingNumber.h">
+      <Filter>Source Files\lib\Extraction</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\..\..\opencv-fingerprint-master\opencv-fingerprint-master\lib\extraction\Filter.h">
+      <Filter>Source Files\lib\Extraction</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\..\..\opencv-fingerprint-master\opencv-fingerprint-master\lib\extraction\Minutiae.h">
+      <Filter>Source Files\lib\Extraction</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\..\..\opencv-fingerprint-master\opencv-fingerprint-master\lib\gap-optimisation\GapOptimisation.h">
+      <Filter>Source Files\lib\Gap-Optimization</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\..\..\opencv-fingerprint-master\opencv-fingerprint-master\lib\optimisation\Ideka.h">
+      <Filter>Source Files\lib\Optimization</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\..\..\opencv-fingerprint-master\opencv-fingerprint-master\lib\thinning\GuoHall.h">
+      <Filter>Source Files\lib\Thinning</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\..\..\opencv-fingerprint-master\opencv-fingerprint-master\lib\thinning\ZhangSuen.h">
+      <Filter>Source Files\lib\Thinning</Filter>
+    </ClInclude>
+    <ClInclude Include="..\lib\binarisation\AdaptiveLocalThreshold.h">
+      <Filter>Source Files\lib\Binarisation</Filter>
+    </ClInclude>
+    <ClInclude Include="Watershed.h">
+      <Filter>Source Files\lib\Optimization</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="..\..\..\..\..\..\..\opencv-fingerprint-master\opencv-fingerprint-master\src\1.bmp" />
+    <Image Include="..\..\..\..\..\..\..\opencv-fingerprint-master\opencv-fingerprint-master\src\2.bmp" />
+    <Image Include="..\..\..\..\..\..\..\opencv-fingerprint-master\opencv-fingerprint-master\src\3.bmp" />
+    <Image Include="..\..\..\..\..\..\..\opencv-fingerprint-master\opencv-fingerprint-master\src\4.bmp" />
+    <Image Include="..\..\..\..\..\..\..\opencv-fingerprint-master\opencv-fingerprint-master\src\5.bmp" />
+    <Image Include="..\..\..\..\..\..\..\opencv-fingerprint-master\opencv-fingerprint-master\src\6.bmp" />
+    <Image Include="..\..\..\..\..\..\..\opencv-fingerprint-master\opencv-fingerprint-master\src\7.bmp" />
+  </ItemGroup>
+</Project>

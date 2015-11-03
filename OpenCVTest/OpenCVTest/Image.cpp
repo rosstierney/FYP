@@ -19,7 +19,7 @@ cv::Mat src_f;
 cv::Mat otsu;
 string fileName = "C:/Users/Ross/Downloads/Fingerprint FYP/Files_FingerPrint/FingerPrint1.bmp";
 string fileName2 = "C:/Users/Ross/Documents/Visual Studio 2015/Projects/Test/src/1.bmp";
-string fileName3 = "C:/Users/Ross/OneDrive/Documents/PNGfingerprint/PNG/1_1.png";
+string fileName3 = "C:/Users/Ross/OneDrive/Documents/PNGfingerprint/PNG/1_2.png";
 
 //thinning function
 void thinner(Mat &img)
@@ -32,10 +32,31 @@ void thinner(Mat &img)
 	cv::imshow("Thinning", img);
 }
 
+void calculateOrientations(Mat gradientX, Mat gradientY) {
+	// Create container element
+	Mat orientation = Mat(gradientX.rows, gradientX.cols, CV_32F);
+
+	// Calculate orientations of gradients --> in degrees
+	// Loop over all matrix values and calculate the accompagnied orientation
+	for (int i = 0; i < gradientX.rows; i++) {
+		for (int j = 0; j < gradientX.cols; j++) {
+			// Retrieve a single value
+			float valueX = gradientX.at<float>(i, j);
+			float valueY = gradientY.at<float>(i, j);
+			// Calculate the corresponding single direction, done by applying the arctangens function
+			float result = fastAtan2(valueX, valueY);
+			// Store in orientation matrix element
+			orientation.at<float>(i, j) = result;
+		}
+	}
+
+	imshow("Orientation",orientation);
+}
+
 void backgroundSegmenter()
 {
 	// Read Input Image
-	Mat src = imread(fileName2);
+	Mat src = imread(fileName3);
 
 	// Convert the input image to gray-scale
 	Mat src_gray;
@@ -58,7 +79,7 @@ void backgroundSegmenter()
 
 	// Get the markers
 	Mat markers(src_thresh.size(), CV_8U, Scalar(0));
-	markers = fg + bg;
+	markers = fg - bg;
 	imshow("Markers", markers);
 
 	// Create watershed segmentation object
@@ -112,19 +133,78 @@ void backgroundSegmenter()
 	/// Show in a window
 	imshow("Contours", drawing);
 }
+ 
+Mat enhanceImg(Mat& inMat) {
+
+	int ks = 47;
+	int hks = (ks - 1) / 2;
+	int kernel_size = 21;
+	double sig = 3;
+	double th = 10;
+	double ps = 90;
+	double lm = 0.5 + ps / 100.0;
+	double theta = th*CV_PI / 180;
+	double psi = ps*CV_PI / 180;
+	double del = 2.0 / (ks - 1);
+	double sigma = sig / ks;
+	double x_theta;
+	double y_theta;
+
+	Mat src_f, dest;
+
+	//Mat image = imread(fileName2, 1), dest, src, src_f;
+
+	//imshow("Src", image);
+
+	cvtColor(inMat, inMat, CV_BGR2GRAY);
+	inMat.convertTo(src_f, CV_32F, 1.0 / 255, 0);
+	if (!ks % 2)
+	{
+		ks += 1;
+	}
+
+	Mat kernel(ks, ks, CV_32F);
+
+	for (int y = -hks; y <= hks; y++)
+	{
+		for (int x = -hks; x <= hks; x++)
+		{
+			x_theta = x*del*cos(theta) + y*del*sin(theta);
+			y_theta = -x*del*sin(theta) + y*del*cos(theta);
+			kernel.at<float>(hks + y, hks + x) = (float)exp(-0.5*(pow(x_theta, 2) + pow(y_theta, 2)) / pow(sigma, 2))* cos(2 * CV_PI*x_theta / lm + psi);
+		}
+	}
+
+	filter2D(src_f, dest, CV_32F, kernel);
+	imshow("Gabor", dest);
+	Mat Lkernel(kernel_size * 20, kernel_size * 20, CV_32F);
+	resize(kernel, Lkernel, Lkernel.size());
+	Lkernel /= 2.;
+	Lkernel += 0.5;
+	imshow("Kernel", Lkernel);
+	Mat mag;
+	pow(dest, 2.0, mag);
+	imshow("Mag", mag);
+
+	return dest;
+}
 
 int main(int argc, const char** argv)
 {
 	//read in file as matrix
-	cv::Mat image = cv::imread(fileName2);
+	cv::Mat image = cv::imread(fileName3);
 	
 	//convert color to grey
 	//cvtColor(image, image, CV_BGR2GRAY);
 	imshow("Original Image", image);
 
+	//Gabor Filter
+	enhanceImg(image);
+
+
 	//use Histogram object for equalization
-	Histogram histogram;
-	cv::imshow("Histogram Equalization", histogram.showHistogram(image));
+	/*Histogram histogram;
+	cv::imshow("Histogram Equalization", histogram.showHistogram(image));*/
 
 	//convert image to Ipl
 	IplImage ipl = image;
@@ -153,6 +233,9 @@ int main(int argc, const char** argv)
 	//Normal binarized image
 	namedWindow("Binarized", CV_WINDOW_AUTOSIZE); //create a window with the name "Binarized"
 	imshow("Binarized", binary); //display the image which is stored in the 'img' in the "Binarized" window
+
+
+	calculateOrientations(binary, binary);
 	
 	//call thinning method
 	thinner(binary);
@@ -162,6 +245,7 @@ int main(int argc, const char** argv)
 
 	//segement the background
 	backgroundSegmenter();
+
 
 	
 	/*// Create markers image
